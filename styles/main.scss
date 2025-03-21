@@ -1,0 +1,128 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    background-color: #799fb2;
+    font-family: 'FiraSans';
+}
+
+@font-face {
+    font-family: 'FiraSans';
+    src: url(../assets/FiraSansCondensed-Regular.ttf);
+}
+
+.sidenav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20%;
+    background-color: wheat;
+    .students {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .selected {
+            font-weight: bolder;
+        }
+    }
+    .studentInfo {
+        font-size: 20px;
+    }
+    .weight-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 5px;
+        button {
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+            transition: .3s ease;
+            &:hover {
+                filter: brightness(75%);
+            }
+        }
+        button:active {
+            transition: .1s ease;
+            background-color: black;
+            color: white;
+            
+        }
+        .increase-btn {
+            background-color: #94e094;
+            border: 2px solid #94e094
+        }
+        .decrease-btn {
+            background-color: #f67171;
+            border: 2px solid #f67171;
+        }
+    }
+}
+
+.page-container{
+    margin-left: 20%;
+    i {
+        position: absolute;
+        top: 25px;
+        left: 21%;
+        scale: 1.5;
+    }
+    .student-generator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 250px;
+        h1 {
+            font-size: 60px;
+        }
+        button {
+            font-size: 20px;
+            font-family: "FiraSans";
+            padding: 15px 80px;
+            cursor: pointer;
+            border: 1px solid azure;
+            border-radius: 25px;
+            background-color: azure;
+            transition: .3s ease;
+            &:hover {
+                background-color: white;
+            }
+        }
+        button:active {
+            transition: .1s;
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+        }
+    }
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        transition: .3s ease;
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #799fb2;
+            border-bottom: 16px solid #799fb2;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    }
+    .loader-overlay.active {
+        visibility: visible;
+    }
+}
